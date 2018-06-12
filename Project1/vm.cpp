@@ -71,6 +71,7 @@ void vm::run(char* cmd, char nb, bool verbose)
 			}
 
 
+
 		if (verbose) {
 			std::cout << "   stack:";
 			std::stack<char> temp; int size = stack.size();
