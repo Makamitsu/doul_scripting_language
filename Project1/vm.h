@@ -23,8 +23,8 @@ enum cmd {
 
 	GLIFE = 0x30, //Push the life of the entity where its id is the top value, push negative one
 	SLIFE = 0x40, //Set the life of the entity where its id is the second top value to the first top value
-	GDMG = 0x31, //Push the dmg of the entity where its id is the top value, push negative one
-	SDMG = 0x42, //Set the dmg of the entity where its id is the second top value to the first top value
+	GDMG = 0x31,  //Push the dmg of the entity where its id is the top value, push negative one
+	SDMG = 0x42,  //Set the dmg of the entity where its id is the second top value to the first top value
 
 	END		= 0x0F //End of a Doul program
 };

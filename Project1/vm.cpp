@@ -52,25 +52,21 @@ void vm::run(char* cmd, char nb, bool verbose)
 		if(started)
 			switch(*curr) {
 			case PUSH: push(*++curr); ++i; break;
-			case JMPIF: while(*++curr != JMPZ) ++i;
+			case JMPIF: if (pop())while(*++curr != JMPZ) ++i;
 			case COMP: a = pop(); b = pop(); push(a == b); break;
 			case NOT: a = pop(); push( a == 0x00 ? 0x01 : 0x00 ); break;
 			case AND: a = pop(); b = pop(); push( a!=0x00 && b!=0x00 ? 0x01 : 0x00 ); break;
 			case OR: a = pop(); b = pop(); push( a != 0x00 || b != 0x00 ? 0x01 : 0x00 ); break;
 			case XOR: a = pop(); b = pop(); push(a != 0x00 && b == 0x00 || b != 0x00 && a == 0x00 ? 0x01 : 0x00); break;
 			case GRT: a = pop(); b = pop(); push( a > b ? 0x01 : 0x00); break;
-
 			case ADD:  a = pop(); b = pop(); push(b + a); break;
 			case SUB:  a = pop(); b = pop(); push(b - a); break;
 			case MUL:  a = pop(); b = pop(); push(b * a); break;
 			case DIV:  a = pop(); b = pop(); push(b / a); break;
-
 			case GLIFE: a = pop(); push(entity::getLife(a)); break;
 			case SLIFE: a = pop(); b = pop(); entity::setLife(b, a); break;
-
 			case GDMG: a = pop(); push(entity::getDmg(a)); break;
 			case SDMG: a = pop(); b = pop(); entity::setDmg(b, a); break;
-
 			case END: return;
 			}
 

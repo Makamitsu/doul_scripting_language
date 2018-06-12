@@ -4,13 +4,10 @@
 #include "entity.h"
 #include "vm.h"
 
-#define DOUL(x) doul[sh++] = x
-
 struct doul {
 	char nb;
 	char* prog;
 };
-
 
 doul DOUL_attack(entity attacker, entity defenser) {
 	doul p{0, new char[255]};
@@ -46,8 +43,7 @@ int main() {
 	std::cout << "Start!\n";
 
 	vm VirtualMachine;
-
-
+	
 	entity player;
 	entity ennemy;
 
