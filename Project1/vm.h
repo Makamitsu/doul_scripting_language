@@ -1,4 +1,5 @@
 #pragma once
+#include "doul.h"
 
 #include <stack>
 #include <string>
@@ -35,11 +36,12 @@ public:
 	vm();
 	~vm();
 
-	void run(char* cmd, char nb, bool verbose = false);
-	char getTop();
-	std::string printProgram(char* p, int size);
+	void execute(Doul program, bool verbose = false);
+	int16_t getTop();
+	std::string getProgramString(Doul program);
+	std::string getCodeValue(int16_t code);
 private:
-	inline char pop();
-	inline void push(char a);
-	std::stack<char> stack;
+	inline int16_t pop();
+	inline void push(int16_t a);
+	std::stack<int16_t> stack;
 };

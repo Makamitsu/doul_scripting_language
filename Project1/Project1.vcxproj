@@ -119,11 +119,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="doul.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="vm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="doul.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="vm.h" />
   </ItemGroup>

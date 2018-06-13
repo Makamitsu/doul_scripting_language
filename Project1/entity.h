@@ -10,15 +10,15 @@ public:
 	entity();
 	~entity();
 
-	static void setLife(char pid, char plife);
-	static char getLife(char pid);
-	static void setDmg(char pid, char pdmg);
-	static char getDmg(char pid);
-	static void print();
-	char id;
+	static void setLife(int16_t pid, int16_t plife);
+	static int16_t getLife(int16_t pid);
+	static void setDmg(int16_t pid, int16_t pdmg);
+	static int16_t getDmg(int16_t pid);
+	static std::string getInfo();
+	int16_t id;
 private:
-	char life;
-	char dmg;
-	static char id_incr;
+	int16_t life;
+	int16_t dmg;
+	static int16_t id_incr;
 };
 

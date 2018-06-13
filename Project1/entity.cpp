@@ -1,9 +1,10 @@
 #include "entity.h"
-#include <vector>
+
 #include <iostream>
 #include <string>
+#include <vector>
 
-char entity::id_incr = 0;
+int16_t entity::id_incr = 0;
 
 std::vector<entity*> entity::all_entities;
 
@@ -16,7 +17,7 @@ entity::~entity()
 {
 }
 
-void entity::setLife(char pid, char plife)
+void entity::setLife(int16_t pid, int16_t plife)
 {
 	for (auto ent : all_entities)
 		if (ent->id == pid) {
@@ -25,7 +26,7 @@ void entity::setLife(char pid, char plife)
 		}
 }
 
-char entity::getLife(char pid)
+int16_t entity::getLife(int16_t pid)
 {
 	for (auto ent : all_entities)
 		if (ent->id == pid)
@@ -33,7 +34,7 @@ char entity::getLife(char pid)
 	return -1;
 }
 
-void entity::setDmg(char pid, char pdmg)
+void entity::setDmg(int16_t pid, int16_t pdmg)
 {
 	for (auto ent : all_entities)
 		if (ent->id == pid) {
@@ -42,7 +43,7 @@ void entity::setDmg(char pid, char pdmg)
 		}
 }
 
-char entity::getDmg(char pid)
+int16_t entity::getDmg(int16_t pid)
 {
 	for (auto ent : all_entities)
 		if (ent->id == pid)
@@ -50,10 +51,16 @@ char entity::getDmg(char pid)
 	return -1;
 }
 
-void entity::print()
+std::string entity::getInfo()
 {
-	std::cout << "List of entities:\n";
+	std::string s;
+	s += "List of entities:\n";
 	for (entity* e : all_entities) {
-		std::cout << "  - " << int(e->id) << " life:"<< int(e->life) <<"\n";
+		s += "  - id:";
+		s += std::to_string(e->id);
+		s += " life:";
+		s += std::to_string(e->life);
+		s += "\n";
 	}
+	return s;
 }
