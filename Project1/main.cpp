@@ -20,13 +20,7 @@ int main() {
 	programAtk[START][PUSH][player.id][PUSH][player.id][GLIFE][PUSH][ennemy.id][GDMG][SUB][SLIFE][END];
 	testIfDead[START][PUSH][0][PUSH][player.id][GRT][END];
 
-	std::cout << entity::getInfo() << "\n";
-
-	std::cout << VirtualMachine.getProgramString(programAtk);
-	VirtualMachine.run(programAtk, false);
-
-	std::cout << entity::getInfo() << "\n";
-
+	VirtualMachine.execute(programAtk, true);
 
 	std::cin.get();
 }

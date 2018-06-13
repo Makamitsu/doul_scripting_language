@@ -36,8 +36,15 @@ std::string vm::getCodeValue(int16_t code) {
 	}
 }
 
+void vm::flush()
+{
+	while (stack.size() > 0)stack.pop();
+}
+
 void vm::execute(Doul program, bool verbose)
 {
+	flush();
+
 	bool started = false;
 	int16_t a, b;
 	int16_t* curr = program.prog;
@@ -69,7 +76,7 @@ void vm::execute(Doul program, bool verbose)
 
 	for(int i = 0; i < program.nb; ++i) {
 
-		if (verbose) std::cout << " inst: " << i << "->" << getCodeValue(*curr) << std::dec << "\n";
+		if (verbose) std::cout << " inst: " << std::to_string(i) << "->" << getCodeValue(*curr) << std::dec << "\n";
 		
 		if (*curr == START)
 			started = true;
@@ -135,7 +142,7 @@ std::string vm::getProgramString(Doul program)
 }
 
 
-inline int16_t vm::pop()
+int16_t vm::pop()
 {
 	if (stack.size() == 0) {
 		__debugbreak();
@@ -145,7 +152,7 @@ inline int16_t vm::pop()
 	return a;
 }
 
-inline void vm::push(int16_t a)
+void vm::push(int16_t a)
 {
 	stack.push(a);
 }

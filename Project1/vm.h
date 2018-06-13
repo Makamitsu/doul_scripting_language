@@ -40,8 +40,9 @@ public:
 	int16_t getTop();
 	std::string getProgramString(Doul program);
 	std::string getCodeValue(int16_t code);
+	void flush();
 private:
-	inline int16_t pop();
-	inline void push(int16_t a);
+	int16_t pop();
+	void push(int16_t a);
 	std::stack<int16_t> stack;
 };
